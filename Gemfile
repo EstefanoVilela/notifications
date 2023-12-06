@@ -72,3 +72,5 @@ group :test do
 end
 
 gem "bootstrap", "~> 5.3"
+# gem "sidekiq", "~> 7.2"
+gem "sidekiq", "~> 6.5"
