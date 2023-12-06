@@ -1,0 +1,1 @@
+rails g scaffold events title notify_at:datetime --no-helper --no-assets --no-test-framework

@@ -1,0 +1,32 @@
+<%= form_with(model: event) do |form| %>
+  <% if event.errors.any? %>
+    <div style="color: red">
+      <b>El evento no pudo ser guardado:</b>
+
+      <ul>
+        <% event.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row mb-3">
+    <%= form.label :title, class: 'col-4 col-form-label' %>
+    <div class="col-8">
+      <%= form.text_field :title, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <%= form.label :notify_at, class: 'col-4 col-form-label' %>
+    <div class="col-8">
+      <%= form.datetime_field :notify_at, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <%= form.submit 'Guardar', class: 'btn btn-primary' %>
+    <%= link_to "Back", events_path, class: 'btn btn-secondary' %>
+  </div>
+<% end %>

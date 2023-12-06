@@ -1,0 +1,46 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1 class="mb-0">Events</h1>
+  <%= link_to "New", new_event_path, class: 'btn btn-primary' %>
+</div>
+
+<div class="table-responsive" id="events">
+  <table class="table table-bordered table-hover">
+    <thead class="table-light">
+      <tr>
+        <th width="10%">#</th>
+        <th width="30%">TITLE</th>
+        <th width="30%">NOTIFY_AT</th>
+        <th width="30%">OPTIONS</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% if @events.length > 0 %>
+        <% @events.each do |event| %>
+          <tr id="<%= dom_id event %>">
+            <td><%= event.id %></td>
+            <td><%= event.title %></td>
+            <td><%= event.notify_at %></td>
+            <td>
+              <div class="d-flex justify-content-between">
+                <%= link_to "Edit", edit_event_path(event), class: 'btn btn-warning', style: 'width: 80px;' %>
+                <%= button_to "Destroy",
+                  event,
+                  method: :delete,
+                  data: { turbo_confirm: 'Seguro mano?' },
+                  class: 'btn btn-danger',
+                  style: 'width: 80px;' %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      <% else %>
+        <tr>
+          <td class="text-center" colspan="4">No hay eventos para mostrar.</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
