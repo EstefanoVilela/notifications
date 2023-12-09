@@ -5,11 +5,10 @@ class NotificationJob
   def perform(event)
     event = JSON.parse(event)
 
-    puts "\n\n\n\n\n"
-    puts "=========="
-    puts event['title']
-    puts "=========="
-    puts "\n\n\n\n\n"
+    puts "==================== Notification Job ===================="
+    ActionCable.server.broadcast('notification_channel', event['title'])
+    puts "evento notificado"
+    puts "==================== Notification Job ===================="
 
     return 0
   end
