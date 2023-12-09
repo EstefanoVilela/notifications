@@ -3,3 +3,6 @@ rails g scaffold events title notify_at:datetime --no-helper --no-assets --no-te
 ## Sidekiq
 $ rails g sidekiq:job notification
 $ bundle exec sidekiq
+
+## Action Cable
+$ rails g channel notification
